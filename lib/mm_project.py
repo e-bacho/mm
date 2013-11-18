@@ -1713,6 +1713,7 @@ class MavensMateProject(object):
     def __log_anonymous_apex(self, apex_body, log, script_name=None):
         if not os.path.exists(os.path.join(self.location, "apex-scripts", "log")):
             os.makedirs(os.path.join(self.location, "apex-scripts", "log"))
+        # The file name format is not valid for Windows, please replace colon : with a dot or something else when running on Win
         location = os.path.join(self.location, "apex-scripts", "log", mm_util.get_timestamp()+".json")
         src = open(location, "w")
         file_body = ""
